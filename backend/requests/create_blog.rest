@@ -1,0 +1,49 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title":"Windows developer",
+    "author":"Microsoft",
+    "url":"https://blogs.windows.com/windowsdeveloper/",
+    "likes": 0
+}
+###Invalid request(title missing)
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "author":"Microsoft",
+    "url":"https://blogs.windows.com/windowsdeveloper/",
+    "likes": 0
+}
+
+###Invalid request(url missing)
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title":"Title",
+    "author":"Microsoft",
+    "likes": 0
+}
+
+###Likes missing will default to 0
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title":"Windows developer",
+    "author":"Microsoft",
+    "url":"https://blogs.windows.com/windowsdeveloper/"
+}
+###
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title":"Windows developer",
+    "author":"Microsoft",
+    "url":"https://blogs.windows.com/windowsdeveloper/",
+    "likes": 0,
+    "userId": "5f14624663932028d8d67346"
+}
