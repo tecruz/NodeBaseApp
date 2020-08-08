@@ -1,4 +1,5 @@
 # NodeBaseApp
+![Node.js CI](https://github.com/tecruz/NodeBaseApp/workflows/Node.js%20CI/badge.svg)
 
 Base application for modern web development. Backend made in NodeJs and frontend in React.
 
