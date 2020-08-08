@@ -1,0 +1,31 @@
+PUT http://localhost:3003/api/blogs/5f13779cfc2db108a88771ee
+Content-Type: application/json
+
+{
+    "title":"Windows developer",
+    "author":"Microsoft",
+    "url":"https://blogs.windows.com/windowsdeveloper/",
+    "likes": 1
+}
+
+###Invalid request(title missing)
+PUT http://localhost:3003/api/blogs/5f143ca146fd420df02ec14b
+Content-Type: application/json
+
+{
+    "author":"Microsoft",
+    "url":"https://blogs.windows.com/windowsdeveloper/",
+    "likes": 0
+}
+
+###Invalid request(url missing)
+PUT http://localhost:3003/api/blogs/5f143ca146fd420df02ec14b
+Content-Type: application/json
+
+{
+    "title":"Title",
+    "author":"Microsoft",
+    "likes": 0
+}
+
+
