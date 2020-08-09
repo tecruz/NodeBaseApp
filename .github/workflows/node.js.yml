@@ -34,11 +34,27 @@ jobs:
         npm ci
         npm run lint
         npm run test
-        npm run start:test & npx wait-on http://localhost:3003/api/users
       working-directory: backend  
     - run: |
         npm ci
         npm run eslint
-        npm run start & npx wait-on http://localhost:3000
-        npm run test:e2e
       working-directory: frontend
+  
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run backend
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          run: npm run start:test &
+          working-directory: backend
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          start: npm run test:e2e
+          wait-on: http://localhost:3003/api/users
