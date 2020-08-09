@@ -35,12 +35,12 @@ jobs:
         npm ci
         npm run lint
         npm run test
-        npm run "start:test" & npx wait-on http://localhost:3003/api/users
+        npm run start:test & npx wait-on http://localhost:3003/api/users
       working-directory: backend  
     - name: npm install, lint and start frontend testing with cypress
     - run: |
         npm ci
         npm run eslint
         npm run start & npx wait-on http://localhost:3000
-        npm run "test:e2e"
+        npm run test:e2e
       working-directory: frontend
