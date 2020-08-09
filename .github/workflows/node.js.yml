@@ -35,7 +35,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run test
-      - run: npm run start:test &
+      - run: npm run start:test & npx wait-on http://localhost:3003
         
   frontend:
     name: "Frontend Test"
@@ -44,6 +44,9 @@ jobs:
     defaults:
       run:
         working-directory: frontend
+    strategy:
+        matrix:
+          node-version: [12.18.2]
     steps:
     - run: npm run eslint
     - run: npm run test
