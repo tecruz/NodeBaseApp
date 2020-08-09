@@ -30,14 +30,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, lint and start backend test server
     - run: |
         npm ci
         npm run lint
         npm run test
         npm run start:test & npx wait-on http://localhost:3003/api/users
       working-directory: backend  
-    - name: npm install, lint and start frontend testing with cypress
     - run: |
         npm ci
         npm run eslint
