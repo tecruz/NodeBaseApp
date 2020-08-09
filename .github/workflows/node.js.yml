@@ -35,7 +35,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run test
-      - run: npm run start:test
+      - run: npm run start:test &
         
   frontend:
     name: "Frontend Test"
