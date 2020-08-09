@@ -50,14 +50,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          run: npm run start:test &
-          working-directory: backend
-
+      - run: npm run start:test &
+        working-directory: backend  
+          
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          start: |
-            npm run start & 
-            npm run test:e2e
+          build: npm run start &
+          start: npm run test:e2e
           wait-on: http://localhost:3000
           working-directory: frontend
