@@ -30,19 +30,17 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
+    - run: |
+        npm ci
+        npm run lint
+        npm run test
+        npm run start:test & 
+        npx wait-on http://localhost:3003
       working-directory: backend  
-    - run: npm run lint
-      working-directory: backend  
-    - run: npm run test
-      working-directory: backend  
-    - run: npm run start:test &
-      working-directory: backend  
-    - run: npm ci
+    - run: |
+        npm ci
+        npm run eslint
+        npm run start &
+        npx wait-on http://localhost:3000
+        npm run test:e2e
       working-directory: frontend
-    - run: npm run eslint
-      working-directory: frontend  
-    - run: npm run start &
-      working-directory: frontend  
-    - run: npm run test:e2e
-      working-directory: frontend 
