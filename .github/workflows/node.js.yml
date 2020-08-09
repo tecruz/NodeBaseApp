@@ -56,7 +56,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          build: npm run start &
-          start: npm run test:e2e
+          start: |
+            npm run start & 
+            npm run test:e2e
           wait-on: http://localhost:3000
           working-directory: frontend
