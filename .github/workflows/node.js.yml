@@ -67,7 +67,7 @@ jobs:
         working-directory: backend  
       - run: |
           npm ci
-          sudo kill -9 `sudo lsof -t -i:3000`
+          npx kill-port 3000
           npm run start &
         working-directory: frontend 
           
