@@ -18,12 +18,6 @@ jobs:
       matrix:
         node-version: [12.18.2]
     
-    env:
-        MONGODB_URI: ${{ secrets.MONGODB_URI }}
-        PORT: ${{ secrets.PORT }}
-        TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
-        SECRET: ${{ secrets.SECRET }}
-    
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -31,6 +25,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Test and run backend
+      env:
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        PORT: ${{ secrets.PORT }}
+        TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+        SECRET: ${{ secrets.SECRET }}
       run: |
         npm ci
         npm run lint
