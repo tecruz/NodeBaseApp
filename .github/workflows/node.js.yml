@@ -52,8 +52,8 @@ jobs:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:login
       working-directory: backend
-    - name: Build and push
+    - name: Build and deplot Heroku
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: deploy:full
+      run: npm run deploy:full
       working-directory: backend
