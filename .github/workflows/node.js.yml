@@ -49,4 +49,5 @@ jobs:
           browser: chrome
           start: npm run test:e2e
           wait-on: http://localhost:3000
+          wait-on-timeout: 120
           working-directory: frontend  
