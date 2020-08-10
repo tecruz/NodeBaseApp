@@ -55,5 +55,8 @@ jobs:
     - name: Build and deploy Heroku
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: npm run deploy:full
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        npm run deploy:full
       working-directory: backend
