@@ -48,12 +48,9 @@ jobs:
           wait-on: http://localhost:3000
           working-directory: frontend  
     - name: Build and deploy Heroku
-      env:
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: |
-        heroku container:login
-        git config --local user.email ${{ secrets.EMAIL }}
-        git config --local user.name ""
-        heroku git:remote -a ${{ secrets.APP_NAME }}
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.APP_NAME }}.git
         npm run deploy:full
       working-directory: backend
