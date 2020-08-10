@@ -52,6 +52,5 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.APP_NAME }}.git
-        git pull heroku master
         npm run deploy:full
       working-directory: backend
