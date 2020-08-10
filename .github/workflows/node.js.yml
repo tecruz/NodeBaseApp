@@ -37,7 +37,7 @@ jobs:
         npm run test
         npm run start:test &
       working-directory: backend  
-    - name: Test, run frontend and start Cypress tests
+    - name: Test and run frontend
       run: |
         npm ci
         npm run eslint
