@@ -35,9 +35,9 @@ jobs:
         npm ci
         npm run lint
         npm run test
-        
+        npm run start:test &
       working-directory: backend  
-    - name: Test frontend
+    - name: Test and run frontend
       run: |
         npm ci
         npm run eslint
@@ -46,8 +46,6 @@ jobs:
     - name: Cypress run
       uses: cypress-io/github-action@v2
       with:
-          browser: chrome
           start: npm run test:e2e
           wait-on: http://localhost:3000
-          wait-on-timeout: 120
           working-directory: frontend  
