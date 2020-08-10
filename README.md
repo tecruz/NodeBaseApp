@@ -5,10 +5,12 @@ Base application for modern web development. Backend made in NodeJs and frontend
 
 Add .env file to backend directory with your configurations:
 
+```.env
 MONGODB_URI='mongodb+srv://your_database_server'
 PORT=3003
 TEST_MONGODB_URI='mongodb+srv://your_test_database_server'
 SECRET = 'your_secret'
+```
 
 Open terminal:
 - cd backend

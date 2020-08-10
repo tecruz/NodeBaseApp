@@ -56,3 +56,4 @@ jobs:
           appdir: "backend"  
     - name: Show prod logs
       run: npm run logs:prod  
+      working-directory: backend 
