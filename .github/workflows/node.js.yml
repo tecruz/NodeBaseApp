@@ -42,5 +42,11 @@ jobs:
         npm ci
         npm run eslint
         npm run start &
-        npm run test:e2e
       working-directory: frontend
+    - name: Cypress run
+      uses: cypress-io/github-action@v2
+      with:
+          browser: chrome
+          start: npm run test:e2e
+          wait-on: http://localhost:3000
+          working-directory: frontend  
