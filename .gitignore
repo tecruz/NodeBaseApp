@@ -105,3 +105,4 @@ dist
 
 frontend/cypress/videos
 frontend/cypress/screenshots
+frontend/build
