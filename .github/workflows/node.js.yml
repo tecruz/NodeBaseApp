@@ -47,17 +47,13 @@ jobs:
           start: npm run start
           wait-on: http://localhost:3000
           working-directory: frontend  
-    - name: Login to Heroku Container registry
-      env: 
-        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-      run: heroku container:login
-      working-directory: backend
     - name: Build and deploy Heroku
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        heroku git:remote -a still-stream-54954
+        heroku container:login
+        git config --local user.email ${{ secrets.EMAIL }}
+        git config --local user.name ""
+        heroku git:remote -a ${{ secrets.APP_NAME }}
         npm run deploy:full
       working-directory: backend
