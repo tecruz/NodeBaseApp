@@ -36,15 +36,14 @@ jobs:
         npm run test
         npm run start:test &
       working-directory: backend  
-    - name: Test and run frontend
+    - name: Test frontend
       run: |
         npm ci
         npm run eslint
-        npm run start &
       working-directory: frontend
     - name: Cypress run
       uses: cypress-io/github-action@v2
       with:
-          start: npm run test:e2e
+          start: npm run start &
           wait-on: http://localhost:3000
           working-directory: frontend  
