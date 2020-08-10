@@ -30,17 +30,17 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    -name: Test and run backend
-     run: |
+    - name: Test and run backend
+      run: |
         npm ci
         npm run lint
         npm run test
         npm run start:test &
-     working-directory: backend  
-    -name: Test, run frontend and start Cypress tests
-     run: |
+      working-directory: backend  
+    - name: Test, run frontend and start Cypress tests
+      run: |
         npm ci
         npm run eslint
         npm run start &
         npm run test:e2e
-     working-directory: frontend
+      working-directory: frontend
