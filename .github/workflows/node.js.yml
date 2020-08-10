@@ -54,6 +54,6 @@ jobs:
           heroku_app_name: ${{secrets.APP_NAME}}
           heroku_email: ${{secrets.EMAIL}}
           appdir: "backend"  
-    - name: Show prod logs
-      run: npm run logs:prod  
+    - name: Show last prod logs
+      run: npm run logs:prod & 
       working-directory: backend 
