@@ -58,5 +58,6 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        heroku git:remote -a still-stream-54954
         npm run deploy:full
       working-directory: backend
