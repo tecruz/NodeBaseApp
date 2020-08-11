@@ -42,14 +42,14 @@ jobs:
         npm run eslint
         npm run coverage
       working-directory: frontend
+    - name: Run CodeCov
+      uses: codecov/codecov-action@v1
     - name: Cypress run
       uses: cypress-io/github-action@v2
       with:
           start: npm run start
           wait-on: http://localhost:3000
           working-directory: frontend  
-    - name: Run CodeCov
-      uses: codecov/codecov-action@v1
     - name: Build and deploy Heroku
       uses: akhileshns/heroku-deploy@v3.4.6
       with:
