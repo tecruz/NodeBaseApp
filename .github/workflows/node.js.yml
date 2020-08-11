@@ -57,3 +57,5 @@ jobs:
     - name: Show last prod logs
       run: npm run logs:prod & 
       working-directory: backend 
+    - name: Run CodeCov
+    - uses: codecov/codecov-action@v1
