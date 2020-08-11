@@ -1,5 +1,6 @@
 # NodeBaseApp
-![Node.js CI](https://github.com/tecruz/NodeBaseApp/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/tecruz/NodeBaseApp/workflows/Node.js%20CI/badge.svg) 
+[![codecov](https://codecov.io/gh/tecruz/NodeBaseApp/branch/master/graph/badge.svg)](https://codecov.io/gh/tecruz/NodeBaseApp)
 
 Base application for modern web development. Backend made in NodeJs and frontend in React.
 
