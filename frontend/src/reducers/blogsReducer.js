@@ -49,15 +49,17 @@ export const likeBlog = (id) => {
   return async (dispatch, getState) => {
     const { blogs } = getState()
     const blogToUpdate = blogs.find((blog) => blog.id === id)
-    const likedBlog = {
-      ...blogToUpdate,
-      likes: blogToUpdate.likes + 1
+    if(blogToUpdate) {
+      const likedBlog = {
+        ...blogToUpdate,
+        likes: blogToUpdate.likes + 1
+      }
+      const updatedBlog = await blogService.update(likedBlog)
+      dispatch({
+        type: 'LIKE',
+        data: updatedBlog
+      })
     }
-    const updatedBlog = await blogService.update(likedBlog)
-    dispatch({
-      type: 'LIKE',
-      data: updatedBlog
-    })
   }
 }
 
