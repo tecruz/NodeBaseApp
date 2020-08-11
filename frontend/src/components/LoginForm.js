@@ -33,6 +33,7 @@ const LoginForm = () => {
           onChange={event => dispatch(fieldChange(event))}
         />
       </div>
+      <br/>
       <Button id='login-button' variant="contained" color="primary" type="submit">login</Button>
     </form>
   )
