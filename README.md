@@ -28,4 +28,6 @@ Now in other terminal run the frontend:
 
 Application running on http://localhost:3000/.
 
+Production build:
 
+https://blogs-base-app.herokuapp.com/
