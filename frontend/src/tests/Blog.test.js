@@ -1,11 +1,15 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { render } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import Blog from '../components/Blog'
 import { Provider } from 'react-redux'
-import Store from '../store'
+import configureStore from 'redux-mock-store'
 
-test('renders content', () => {
+const mockStore = configureStore([])
+
+describe('Blog Component', () => {
+  let store
+  let component
   const blog = {
     title: 'New Blog',
     author: 'Me',
@@ -15,14 +19,31 @@ test('renders content', () => {
       name: 'name'
     }
   }
+ 
+  beforeEach(() => {
+    store = mockStore({
+      blogs: blog
+    })
 
-  const component = render(
-    <Provider store={Store}>
-      <Blog blog={blog} />
-    </Provider>
-  )
+    store.dispatch = jest.fn()
+ 
+    component = render(
+      <Provider store={store}>
+        <Blog blog={blog} />
+      </Provider>
+    )
+  })
+ 
+  it('renders content', () => {
+    expect(component.container).toHaveTextContent(
+      'Me'
+    )
+  })
+ 
+  it('clicking the like button calls event handler once', () => {
+    const button = component.getByText('like')
+    fireEvent.click(button)
 
-  expect(component.container).toHaveTextContent(
-    'Me'
-  )
+    expect(store.dispatch).toHaveBeenCalledTimes(1)
+  })
 })

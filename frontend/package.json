@@ -20,7 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "coverage":"react-scripts test --watchAll=false --coverage",
+    "coverage": "react-scripts test --watchAll=false --coverage",
     "eject": "react-scripts eject",
     "eslint": "eslint .",
     "cypress:open": "cypress open",
@@ -49,6 +49,7 @@
     "cypress": "^4.11.0",
     "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-jest": "^23.18.0",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.4"
   }
 }
