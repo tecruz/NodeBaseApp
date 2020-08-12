@@ -19,27 +19,26 @@ describe('Blog Component', () => {
       name: 'name'
     }
   }
- 
+
   beforeEach(() => {
     store = mockStore({
       blogs: blog
     })
 
     store.dispatch = jest.fn()
- 
+
     component = render(
       <Provider store={store}>
         <Blog blog={blog} />
-      </Provider>
-    )
+      </Provider>)
   })
- 
+
   it('renders content', () => {
     expect(component.container).toHaveTextContent(
       'Me'
     )
   })
- 
+
   it('clicking the like button calls event handler once', () => {
     const button = component.getByText('like')
     fireEvent.click(button)
