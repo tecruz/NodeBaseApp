@@ -3,19 +3,11 @@ import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import BlogForm from '../components/BlogForm'
 import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store'
-
-const mockStore = configureStore([])
+import Store from '../store'
 
 test('<BlogForm /> updates parent state and calls onSubmit', () => {
-  const store = mockStore({
-      blogForm: { title: '', author: '', url:'' }
-  })
-
-  store.dispatch = jest.fn()
-
   const component = render(
-    <Provider store={store}>
+    <Provider store={Store}>
       <BlogForm />
     </Provider>
   )
@@ -28,6 +20,5 @@ test('<BlogForm /> updates parent state and calls onSubmit', () => {
   })
   fireEvent.submit(form)
 
-  expect(store.dispatch).toHaveBeenCalledTimes(1)
-  expect(store.getState().blogForm.title).toBe('testing of forms could be easier' )
+  expect(Store.getState().blogForm.title).toBe('testing of forms could be easier' )
 })
