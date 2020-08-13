@@ -5,20 +5,37 @@ import BlogForm from '../components/BlogForm'
 import { Provider } from 'react-redux'
 import Store from '../store'
 
-test('<BlogForm /> updates parent state and calls onSubmit', () => {
-  const component = render(
-    <Provider store={Store}>
-      <BlogForm />
-    </Provider>
-  )
-
-  const input = component.container.querySelector('input')
-  const form = component.container.querySelector('form')
-
-  fireEvent.change(input, {
-    target: { value: 'testing of forms could be easier' }
+describe('BlogForm Component', () => {
+  let component
+  beforeEach(() => {
+    component = render(
+      <Provider store={Store}>
+        <BlogForm />
+      </Provider>
+    )
   })
-  fireEvent.submit(form)
 
-  expect(Store.getState().blogForm.title).toBe('testing of forms could be easier' )
+  it('updates fields and calls onSubmit', () => {
+    const inputTitle = component.container.querySelector('#fTitle')
+    const inputAuthor = component.container.querySelector('#fAuthor')
+    const inputUrl = component.container.querySelector('#fUrl')
+    const form = component.container.querySelector('form')
+
+    fireEvent.change(inputTitle, {
+      target: { value: 'New title' }
+    })
+    fireEvent.change(inputAuthor, {
+      target: { value: 'New author' }
+    })
+    fireEvent.change(inputUrl, {
+      target: { value: 'New url' }
+    })
+    fireEvent.submit(form)
+
+    const state = Store.getState()
+
+    expect(state.blogForm.title).toBe('New title')
+    expect(state.blogForm.author).toBe('New author')
+    expect(state.blogForm.url).toBe('New url')
+  })
 })
