@@ -63,9 +63,9 @@ describe('Blog app', function() {
 
       it('it can be liked', function () {
         cy.contains('Another blog by cypress').click()
-        cy.contains('likes 0')
+        cy.contains('Likes: 0')
         cy.get('#likeBtn').click()
-        cy.contains('likes 1')
+        cy.contains('Likes: 1')
       })
     })
   })
