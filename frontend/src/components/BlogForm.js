@@ -15,22 +15,24 @@ const BlogForm = () => {
   return (
     <div className="formDiv">
       <form onSubmit={event => dispatch(createBlog(event))}>
-        <TextField id="fTitle"
+        <TextField required id="fTitle"
           label="Title"
           value={title}
           onChange={event => dispatch(fieldChange(event))}
         /><br/>
-        <TextField id="fAuthor"
+        <TextField required id="fAuthor"
           label="Author"
           value={author}
           onChange={event => dispatch(fieldChange(event))}
         /><br/>
-        <TextField id="fUrl"
+        <TextField required id="fUrl"
           label="Url"
           value={url}
           onChange={event => dispatch(fieldChange(event))}
         /><br/>
+        <br/>
         <Button variant="contained" color="primary" type="submit">create</Button>
+        <br/>
       </form>
     </div>
   )

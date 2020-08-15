@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import Blog from '../components/Blog'
 import { Switch, Route, useRouteMatch, Link } from 'react-router-dom'
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
@@ -23,19 +24,21 @@ const Blogs = () => {
         <Blog blog={blog}/>
       </Route>
       <Route>
-        <TableContainer component={Paper}>
-          <Table>
-            <TableBody>
-              {blogs.map(blog => (
-                <TableRow key={blog.id}>
-                  <TableCell>
-                    <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <Box mt={2}>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableBody>
+                {blogs.map(blog => (
+                  <TableRow key={blog.id}>
+                    <TableCell>
+                      <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Box>
       </Route>
     </Switch>
   )}

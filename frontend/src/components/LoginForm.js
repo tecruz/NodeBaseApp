@@ -21,6 +21,7 @@ const LoginForm = () => {
           name="Username"
           label="Username"
           onChange={event => dispatch(fieldChange(event))}
+          required
         />
       </div>
       <div>
@@ -31,6 +32,7 @@ const LoginForm = () => {
           name="Password"
           label="Password"
           onChange={event => dispatch(fieldChange(event))}
+          required
         />
       </div>
       <br/>

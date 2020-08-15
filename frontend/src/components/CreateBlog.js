@@ -1,14 +1,15 @@
 import React from 'react'
 import Togglable from '../components/Togglable'
 import BlogForm from '../components/BlogForm'
+import { Box } from '@material-ui/core'
 
 const CreateBlog = () => {
   return(
-    <div>
+    <Box mb={2}>
       <Togglable id='new blog' buttonLabel='new blog'>
         <BlogForm />
       </Togglable>
-    </div>
+    </Box>
   )}
 
 export default CreateBlog
