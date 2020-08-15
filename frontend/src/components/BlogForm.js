@@ -2,8 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createBlog } from '../reducers/blogsReducer'
 import { fieldChange } from '../reducers/blogFormReducer'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import { Button, TextField, Box } from '@material-ui/core'
 
 const BlogForm = () => {
   const dispatch = useDispatch()
@@ -13,7 +12,7 @@ const BlogForm = () => {
   const url = useSelector(state => state.blogForm.url)
 
   return (
-    <div className="formDiv">
+    <Box className="formDiv">
       <form onSubmit={event => dispatch(createBlog(event))}>
         <TextField required id="fTitle"
           label="Title"
@@ -34,7 +33,7 @@ const BlogForm = () => {
         <Button variant="contained" color="primary" type="submit">create</Button>
         <br/>
       </form>
-    </div>
+    </Box>
   )
 }
 

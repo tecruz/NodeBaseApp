@@ -1,4 +1,5 @@
 import React from 'react'
+import { Box, Typography, List, ListItem } from '@material-ui/core'
 
 const User = ({ user }) => {
   if (!user) {
@@ -6,14 +7,14 @@ const User = ({ user }) => {
   }
 
   return (
-    <div>
-      <h1>{user.name}</h1>
-      <h2>added blogs</h2>
-      <ul>
+    <Box mt={2}>
+      <Typography variant="h6">{user.name}</Typography>
+      <Typography variant="h4">added blogs</Typography>
+      <List>
         {user.blogs.map(blog =>
-          <li key={blog.title}>{blog.title}</li>)}
-      </ul>
-    </div>
+          <ListItem key={blog.title}>{blog.title}</ListItem>)}
+      </List>
+    </Box>
   )}
 
 export default User

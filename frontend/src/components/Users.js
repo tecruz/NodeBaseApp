@@ -5,12 +5,14 @@ import {
   Switch, Route, useRouteMatch, Link
 } from 'react-router-dom'
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableRow,
   Paper,
+  Typography
 } from '@material-ui/core'
 
 const Users = () => {
@@ -20,13 +22,13 @@ const Users = () => {
   const user = match? users.find(user => user.id === match.params.id) : null
 
   return (
-    <div>
+    <Box mt={2}>
       <Switch>
         <Route path="/users/:id">
           <User user={user} />
         </Route>
         <Route>
-          <h1>Users</h1>
+          <Typography variant="h6">Users</Typography>
           <TableContainer component={Paper}>
             <Table>
               <TableBody>
@@ -44,7 +46,7 @@ const Users = () => {
           </TableContainer>
         </Route>
       </Switch>
-    </div>
+    </Box>
   )}
 
 export default Users

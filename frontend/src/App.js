@@ -12,7 +12,7 @@ import { initializeUsers } from './reducers/usersReducer'
 import {
   Switch, Route, useHistory
 } from 'react-router-dom'
-import Container from '@material-ui/core/Container'
+import { Container, Box }from '@material-ui/core'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -34,13 +34,12 @@ const App = () => {
 
   return (
     <Container>
-      <div>
+      <Box>
         {user === null ?
           <Login/> :
-          <div>
+          <Box>
             <Menu/>
             <Notification/>
-            <h1>blog app</h1>
             <Switch>
               <Route path='/users'>
                 <Users/>
@@ -50,9 +49,9 @@ const App = () => {
                 <Blogs/>
               </Route>
             </Switch>
-          </div>
+          </Box>
         }
-      </div>
+      </Box>
     </Container>
   )
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { toggleVisibility, initializeView } from '../reducers/togglableReducer'
-import Button from '@material-ui/core/Button'
+import { Button, Box } from '@material-ui/core'
 
 const Togglable = (props) => {
   const id = props.id
@@ -30,16 +30,16 @@ const Togglable = (props) => {
   }
 
   return (
-    <div>
-      <div style={hideWhenVisible}>
+    <Box>
+      <Box style={hideWhenVisible}>
         <Button variant="contained" color="primary" onClick={toggle}>{buttonLabel}</Button>
-      </div>
-      <div style={showWhenVisible} className="togglableContent">
+      </Box>
+      <Box style={showWhenVisible} className="togglableContent">
         {props.children}
         <br/>
         <Button variant="contained" color="primary" onClick={toggle}>{cancelLabel ? cancelLabel : 'cancel'}</Button>
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
 

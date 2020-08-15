@@ -2,9 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logOut } from '../reducers/loginReducer'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Button from '@material-ui/core/Button'
+import { AppBar, Toolbar, Button, Box } from '@material-ui/core'
 
 const Menu = () => {
   const dispatch = useDispatch()
@@ -13,7 +11,7 @@ const Menu = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <div>
+        <Box>
           <Button color="inherit" component={Link} to='/'>
             blogs
           </Button>
@@ -21,7 +19,7 @@ const Menu = () => {
             users
           </Button>
           {user.name} logged in<Button color="inherit" onClick={() => dispatch(logOut())}>logout</Button>
-        </div>
+        </Box>
       </Toolbar>
     </AppBar>
   )}

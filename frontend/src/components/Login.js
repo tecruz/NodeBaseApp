@@ -2,16 +2,17 @@ import React from 'react'
 import Togglable from '../components/Togglable'
 import LoginForm from '../components/LoginForm'
 import Notification from '../components/Notification'
+import { Box, Typography } from '@material-ui/core'
 
 const Login = () => {
   return (
-    <div>
-      <h1>blog app</h1>
+    <Box>
+      <Typography variant="h3">blog app</Typography>
       <Notification/>
       <Togglable id='login' buttonLabel='login'>
         <LoginForm />
       </Togglable>
-    </div>
+    </Box>
   )}
 
 export default Login
